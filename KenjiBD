@@ -1,0 +1,46 @@
+create database kenji;
+
+show databases;
+
+use kenji;
+
+create table clientes(
+		id_cliente int primary key not null auto_increment,
+		nome varchar(80) not null,
+		rg varchar(10),
+		cpf char(14),
+		endereco varchar(200)
+		);
+
+
+
+create table pedidos(
+		id_pedidos int primary key not null auto_increment,
+		frete double,
+		Transportadora varchar(80),
+		cupom varchar(30) not null,
+		datapedido date
+		);
+
+
+create table itens(
+		id_itens int primary key not null auto_increment,
+		garantia double,
+		valor double,
+		quantidade int
+		);
+
+create table produtos(
+		id_produtos int primary key not null auto_increment,
+		quantidade_estoque int,
+		valor double,
+		cor varchar(40),
+		descricao varchar(300)
+		);
+
+show tables;
+
+describe clientes;
+describe pedidos;
+describe itens;
+describe produtos;
