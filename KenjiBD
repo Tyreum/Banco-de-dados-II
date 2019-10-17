@@ -7,8 +7,8 @@ use kenji;
 create table clientes(
 		id_cliente int primary key not null auto_increment,
 		nome varchar(80) not null,
-		rg varchar(10),
-		cpf char(14),
+		rg varchar(10) not null,
+		cpf char(14) not null,
 		endereco varchar(200)
 		);
 
@@ -17,25 +17,27 @@ create table clientes(
 create table pedidos(
 		id_pedidos int primary key not null auto_increment,
 		frete double,
-		Transportadora varchar(80),
+		Transportadora varchar(80) not null,
 		cupom varchar(30) not null,
-		datapedido date
+		datapedido datetime not null
+		id_cli int,
+		foreign key (id_cli) references clientes (id_cliente)
 		);
 
 
 create table itens(
 		id_itens int primary key not null auto_increment,
-		garantia double,
+		garantia double not null,
 		valor double,
 		quantidade int
 		);
 
 create table produtos(
 		id_produtos int primary key not null auto_increment,
-		quantidade_estoque int,
+		quantidade_estoque int not null,
 		valor double,
 		cor varchar(40),
-		descricao varchar(300)
+		descricao varchar(300) not null
 		);
 
 show tables;
